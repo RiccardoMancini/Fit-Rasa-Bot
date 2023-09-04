@@ -9,4 +9,4 @@ fisica dell’utente. Grazie alla sezione informativa, gli utenti potranno compr
 facilmente come eseguire gli esercizi in maniera corretta, ottenendo l’indipendenza da
 eventuali preparatori o personal trainer. Tuttavia, si consiglia comunque di discutere
 con un esperto in materia per ottenere consigli personalizzati e specifici.
-[Leggi di più]('./Tesina_Chatbot.pdf')
+[Leggi di più](./Tesina_Chatbot.pdf)
