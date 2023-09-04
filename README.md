@@ -1,6 +1,6 @@
 # Fit-Rasa-Bot
 Progettazione di un chatbot sfruttando il framework RASA, destinato al corso di DataScience 2022/23.
-## Introduzione
+## Descrizione generale
 L’obiettivo di questo elaborato è presentare la realizzazione e lo sviluppo di un
 chatbot pensato per supportare le persone nell’approccio al mondo della palestra.
 Il chatbot fornirà una vasta gamma di esercizi che potranno essere eseguiti sia a
