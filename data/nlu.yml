@@ -1,0 +1,230 @@
+version: "3.1"
+
+nlu:
+- intent: saluto
+  examples: |
+    - ciao
+    - salve
+    - buongiorno 
+    - buonasera
+    - Ciao fit
+    - ciao fit
+    - ehi fit
+    - Ehi
+    - Ciao chi sei?
+    - chi sei
+
+
+- intent: negazione 
+  examples: |
+    - no 
+    - non mi interessa 
+    - assolutamente no 
+    - non ci penso prorpio 
+    - no grazie mille
+    - no grazie
+
+
+- intent: calcolo_bmi
+  examples: |
+    - caloliamo il bmi
+    - procediamo con il calcolo del bmi
+    - facciammo il calocolo 
+    - andiamo con la misura 
+    - fammi vedere il mio bmi
+    - calcoliamo il mio bmi
+    - calcoliamo il bmi
+    - voglio conoscere il bmi 
+    - fammi il calcolo 
+    - calcola 
+    - voglio il bmi 
+    - fammi il bmi 
+    - procediamo con il calcolo 
+
+
+- intent: informazioni_bmi
+  examples: |
+    - vorrei saperne di più sul bmi
+    - vorrei delle informazioni in più sul bmi
+    - info in più sul bmi
+    - dimmi di cosa si tratta 
+    - vorrei approfondire il bmi
+    - info bmi
+    - spiegami di cosa si tratta 
+    - voglio sapere delle info
+
+- intent: informazioni_scheda
+  examples: |
+    - si fammi vedere
+    - si approfondisci
+    - mostrami delle info in più
+    - dimmi qualcosa in più riguardo gli esercizi della scheda
+    - non so nulla di questi esercizi... approfondisci!
+    - si vorrei approfondire
+    - come si fanno questi esercizi
+    - dammi più info sugli esercizi
+    - dammi più info sulla scheda creata
+    - si grazie
+    - si magari grazie mille
+    - magari
+
+- intent: scheda_allenamento
+  examples: |
+    - vorrei mi facessi la scheda
+    - voglio la scheda di allenamento
+    - scheda 
+    - scheda di allenamento
+    - crea scheda di allenamento
+    - crea scheda
+    - preferirei iniziare ad allenarmi con una scheda
+    - perfavore producimi la scheda di allenamento iniziale
+    - preferirei iniziare ad allenarmi 
+    - generami un piano allenamento
+    - iniziamo ad allenarci 
+    - alleniamoci va 
+    - preferirei iniziare con gli allenamenti 
+    - allenamenti 
+    - fammi vedere un piano allenamento 
+    - preferirei iniziare a definire il piano di allenamento 
+    - iniziamo con il piano di allenamento 
+  
+
+- intent: scelta_dieta
+  examples: |
+    - mi servirebbe definire la dieta 
+    - va bene, aiutami a definire il piano alimentare 
+    - mi servirebbe capire la dieta da seguire 
+    - vediamo il piano alimentare 
+    - voglio capire che tipo di alimentazione seguire 
+    - voglio capire che tipo di dieta seguire 
+    - piano alimentare 
+    - vorrei definirmi un piano alimentare 
+    - vorrei definire un piano alimentare 
+    - definiscimi un piano alimentare 
+    - vorrei farmi un piano alimentare
+    - definiamo la dieta 
+    - dieta 
+    - fammi vedere il piano da seguire 
+    - alimentazione 
+    - mi piacerebbe sapere che dieta seguire per allenarmi 
+
+- intent: chiedi_servizi
+  examples: |
+    - che servizi offri
+    - voglio altro
+    - altro
+    - cosa puoi offrirmi
+    - dimmi che fai
+    - che fai
+    - cosa posso fare
+    - aiuto
+    - aiutami con il fitness
+    - da dove inizio
+    - non so che fare
+    - servizi fit
+    - servizi
+
+- intent: nome
+  examples: |
+    - mi chiamo [Luigi](Enome)
+    - il mio nome è [Chiara](Enome)
+    - sono [luigi](Enome)
+    - chiamami pure [Martina](Enome)
+    - puoi chiamarmi [stefano](Enome)
+    - [Giulia](Enome)
+    - [sara](Enome)
+    - [Riccardo](Enome)
+    - sono [arment](Enome)
+    - salve mi chiamo [michele](Enome)
+    - il mio nome è [Arment](Enome)
+    - io sono [Claudia](Enome)
+    - sono [Stefano](Enome)
+    - salve io sono [Alessandro](Enome)
+    - piacere [Riccardo](Enome)
+    - mi chiamo [Sara](Enome)
+    - mi chiamo [Francesco](Enome)
+    - mi chiamo [Guido](Enome)
+    - mi chiamo [Arment](Enome)
+    - sono [Martina](Enome)
+    
+
+- intent: parametriBmi
+  examples: |
+    - peso [83.5](Epeso) kg
+    - [100.4](Epeso)
+    - [102.9](Epeso) kg
+    - [34.1](Epeso) Kg
+    - Il mio peso è di [45.2](Epeso) KG
+    - sono [34.1](Epeso)
+    - sono [76.4](Epeso) kg
+    - sono [89.1](Epeso) Kg
+    - sono [202.7](Epeso) KG
+    - sono alto [1.78](Ealtezza) m
+    - sono [1.2](Ealtezza) M 
+    - [2.18](Ealtezza) 
+    - [1.92](Ealtezza) M
+    - la mia altezza è di [1.67] m
+    - la mia altezza è di [1.83] M
+    - la mia altezza è di [1.77] 
+
+- intent: scelta_casa_palestra 
+  examples: |
+    - mi allenerò a [casa](Ecasapalestra)
+    - preferisco allenarmi in [palestra](Ecasapalestra)
+    - [casa](Ecasapalestra)
+    - [palestra](Ecasapalestra)
+    - mi sto allenando in [palestra](Ecasapalestra)
+    - vorrei allenarmi in [palestra](Ecasapalestra)
+    - vorrei allenarmi a [casa](Ecasapalestra)
+
+- intent: richiesta_elenco_esercizi
+  examples: |
+    - vorrei vedere elenco degli esercizi
+    - informazioni sugli esercizi
+    - mi piacerebbe approfondire gli esercizi
+    - vorrei maggiori informazioni sugli esercizi
+    - elenco esercizi 
+    - lista esercizi
+    - elenco degli esercizi 
+    - voglio vedere gli esercizi per categoria 
+
+- intent: scelta_categoria_esercizio
+  examples: |
+    - [gambe](Etargetcorpo)
+    - [schiena](Etargetcorpo)
+    - [braccia](Etargetcorpo)
+    - [busto](Etargetcorpo)
+    - vorrei vedere la categorie delle [gambe](Etargetcorpo)
+    - categoria [braccia](Etargetcorpo)
+    - voglio vedere la [schiena](Etargetcorpo)
+    - [aerobico](Etargetcorpo)
+    - [Schiena](Etargetcorpo)
+    - [Addominali](Etargetcorpo)
+    - [Busto](Etargetcorpo)
+    - vorrei approfondire gli [addominali](Etargetcorpo)
+
+- intent: richiesta_info_esercizio
+  examples: |
+    - vorrei informazioni su [Lat pulldown](Eesercizio)
+    - spiegami come si fa il [Back extension](Eesercizio)
+    - voglio capire il [Quadruped single-arm dumbbell row](Eesercizio)
+    - [One-arm dumbbell push press](Eesercizio)
+    - [Plank dumbbell shoulder raise](Eesercizio)
+    - [Trap Bar Deadlifts](Eesercizio)
+    - [Overhead Presses](Eesercizio)
+    - [Seated military press](Eesercizio)
+    - [Front squat](Eesercizio)
+    - [Walking lunges](Eesercizio)
+
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -1,0 +1,105 @@
+version: "3.1"
+
+rules:
+
+- rule: Ripropone i servizi del bot
+  steps:
+  - intent: chiedi_servizi
+  - action: action_get_servizi
+
+- rule: Chiedi all'utente di riformulare la frase se non compresa
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+# regole attivazione e registro nome
+- rule: Attivazione nome form
+  steps:
+  - intent: saluto
+  - action: nome_form
+  - active_loop: nome_form
+
+- rule: Submit nome form
+  condition:
+  - active_loop: nome_form
+  steps:
+  - action: nome_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ric
+
+
+# regole attivazione e registro bmi
+- rule: Attivazione bmi form
+  steps:
+  - intent: calcolo_bmi
+  - action: bmi_form
+  - active_loop: bmi_form
+
+- rule: Submit bmi form
+  condition:
+  - active_loop: bmi_form
+  steps:
+  - action: bmi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: action_calc_bmi
+  - action: action_get_servizi
+
+  # regole attivazione e registro casapalestra form
+- rule: Attivazione casapalestra form
+  steps:
+    - intent: scheda_allenamento
+    - action: casapalestra_form
+    - active_loop: casapalestra_form
+
+- rule: Submit casapalestra form
+  condition:
+  - active_loop: casapalestra_form
+  steps:
+  - action: casapalestra_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_create_scheda
+
+
+# regola attivazione form per la parte del corpo
+- rule: Attivazione targetcorpo form
+  steps:
+    - intent: richiesta_elenco_esercizi
+    - action: targetcorpo_form
+    - active_loop: targetcorpo_form
+
+- rule: Submit corpoallenamento form
+  condition:
+  - active_loop: targetcorpo_form
+  steps:
+  - action: targetcorpo_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ask_Eesercizio
+
+# regola attivazione form per info sugli esercizi
+- rule: Attivazione info esercizio form
+  steps:
+    - intent: richiesta_info_esercizio
+    - action: info_esercizio_form
+    - active_loop: info_esercizio_form
+
+- rule: Submit info esercizio form
+  condition:
+  - active_loop: info_esercizio_form
+  steps:
+  - action: info_esercizio_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_get_info_es
+
+
+  

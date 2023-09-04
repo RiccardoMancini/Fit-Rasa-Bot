@@ -1,0 +1,188 @@
+version: "3.1"
+
+intents:
+  - saluto
+  - nlu_fallback
+  - negazione
+  - calcolo_bmi
+  - parametriBmi
+  - request_bmi_form
+  - scelta_dieta
+  - chiedi_servizi
+  - informazioni_bmi
+  - informazioni_scheda
+  - nome
+  - scelta_casa_palestra
+  - scheda_allenamento
+  - richiesta_elenco_esercizi
+  - scelta_categoria_esercizio
+  - richiesta_info_esercizio
+
+entities:
+  - Epeso
+  - Ealtezza
+  - Enome
+  - Ecasapalestra
+  - Escheda
+  - Etargetcorpo
+  - Eesercizio
+
+
+slots:
+  Epeso:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Epeso
+
+  Ealtezza:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Epeso
+
+  Enome:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Enome
+
+  Ecasapalestra:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Ecasapalestra
+
+  Escheda:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Escheda
+
+  Etargetcorpo:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Etargetcorpo
+
+  Eesercizio:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Eesercizio
+
+
+
+forms:
+  bmi_form:
+    required_slots:
+      - Epeso
+      - Ealtezza
+
+  nome_form:
+    required_slots:
+      - Enome
+
+  casapalestra_form:
+    required_slots:
+      - Ecasapalestra
+
+  scheda_form:
+    required_slots:
+      - Escheda
+
+  targetcorpo_form:
+    required_slots:
+      - Etargetcorpo
+
+  info_esercizio_form:
+    required_slots:
+      - Eesercizio
+
+responses:
+
+  utter_ric:
+  - text: "Allora {Enome}, quale tra le seguenti azioni preferisci approfondire?\n
+   - Consigli su un piano alimentare giusto per te;\n - Definire un piano di allenamento\n - Scoprire gli esercizi che ti posso offrire"
+  - text: "Dimmi {Enome} cosa preferiresti trattare tra: \n
+  - Spunti per un piano alimentare sano;\n - Definizione di un piano di allenamento\n - Approfondire gli esercizi a disposizione"
+
+  utter_servizi:
+    - text: "Ho la possibilità di: \n - Consigliarti un piano alimentare giusto per te;\n - Definirti un piano di allenamento\n - Scoprire gli esercizi che ti posso offrire"
+
+  utter_ric_bmi:
+  - text: "Bene! Per capire che tipo di alimentazione seguire è necessario che io calcoli il tuo indice di massa corporea, anche conosciuto come BMI. Vuoi ricevere delle informazioni a riguardo oppure procediamo con il calcolo?"
+
+  utter_ric_calc_bmi:
+  - text:  "Vogliamo procedere con il calcolo del BMI?"
+
+  utter_opzioni_calco_bmi:
+  - text: "Preferisci continuare con il calcolo per poterti suggerire un piano di allenamento iniziale o preferisci visualizzare direttamente l'elenco degli esercizi che abbiamo a disposizione?"
+
+
+  utter_spiegazione_bmi:
+  - text: "Il BMI (Body Mass Index), o indice di massa corporea, è una misura utilizzata per valutare se una persona ha un peso sano rispetto alla sua altezza. 
+  Il BMI viene calcolato dividendo il peso di una persona in chilogrammi per il quadrato della sua altezza in metri. Il risultato fornisce un'indicazione della quantità di grasso corporeo di una persona. 
+  Tuttavia, è importante notare che il BMI non tiene conto di altri fattori come la composizione corporea, la massa muscolare e l'età, quindi non sempre è un indicatore accurato della salute complessiva di una persona.\n\n 
+  Ad ogni modo se vuoi saperne di più ti rimando al seguente link: https://www.centrostudigised.it/calcola_il_tuo_bmi.html"
+
+  utter_submit:
+  - text: "Bene! Sto procedendo con il calcolo. Pochi secondi e conoscerai un'idea di dieta da seguire per il tuo fisico!"
+
+  utter_please_rephrase:
+    - text: "Prova a riformulare la frase che non ti ho capito..."
+    - text: "Forse non ho ben capito cosa mi stai chiedendo... :("
+
+
+
+  # Utter per le form
+  utter_ask_Epeso:
+  - text: "Per proseguire con il calcolo del BMI è necessario che mi dica il tuo peso attuale in chilogrammi (kg)."
+  - text: "Mi servirebbe sapere il tuo peso in chili (kg)."
+
+  utter_ask_Ealtezza:
+  - text: "Mi servirebbe conoscere anche la tua altezza espressa in metri (m), per concludere la procedura di calcolo."
+  - text: "Per ultimare il calcolo del BMI è necessario che tu mi dica la tua altezza in metri (m)."
+
+  utter_ask_Enome:
+  - text: "Ciao! Sono Fit, il tuo personal trainer virtuale, e sarò lieto di guidarti nei tuoi primi passi nel mondo del fitness. Prima di iniziare, mi piacerebbe conoscerti meglio. Come posso chiamarti?"
+  - text: "Ciao, sono Fit, il tuo assistente virtuale per il fitness. Sono qui per fornirti informazioni e supporto per aiutarti a raggiungere i tuoi obiettivi. Ma prima di iniziare, mi piacerebbe conoscerti meglio. Come posso chiamarti?"
+  - text: "Benvenuto! Io sono Fit e sono qui per aiutarti ad avviare il tuo percorso di fitness e benessere. Come assistente virtuale per il fitness, ti fornirò le informazioni e il supporto necessari per raggiungere i tuoi obiettivi. Ma innanzitutto come posso chiamarti?"
+
+  utter_ask_Ecasapalestra:
+  - text: "Bene! Per poterti creare una scheda di allenamento personalizzata, sarebbe utile sapere dove intendi svolgere gli esercizi: a casa o in palestra?"
+  - text: "Molto bene! Vuoi che ti crei un piano di allenamento da svolgere a casa o in palestra?"
+  - text: "Preferisci allenarti a casa o in palestra? Questa informazione mi permetterà di creare una scheda di allenamento che tenga conto delle attrezzature a tua disposizione."
+
+actions:
+- utter_ric
+- utter_please_rephrase
+- utter_ric_bmi
+- utter_ric_calc_bmi
+- utter_opzioni_calco_bmi
+- utter_submit
+- utter_spiegazione_bmi
+- utter_servizi
+- action_get_servizi
+- action_calc_bmi
+- action_create_scheda
+- action_ask_Etargetcorpo
+- action_ask_Eesercizio
+- action_get_info_es
+- validate_bmi_form
+- validate_nome_form
+- validate_casapalestra_form
+- validate_targetcorpo_form
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
